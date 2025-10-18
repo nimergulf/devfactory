@@ -2,261 +2,266 @@
 
 **The Agentic Software Development Platform**
 
-*From Idea to Deployed Code — in One Conversation*
+*Transform any idea into a governed, deployable product — automatically*
 
-[![Agent-Driven](https://img.shields.io/badge/Agent-Driven-9C27B0?logo=robot&logoColor=white)](#agents)
-[![Multi-Model](https://img.shields.io/badge/Multi--Model-LLM-FF6F00?logo=openai&logoColor=white)](#llm-providers)
-[![GitOps](https://img.shields.io/badge/GitOps-Ready-2E8B57?logo=git&logoColor=white)](#gitops)
-[![Governed](https://img.shields.io/badge/Governed-SDLC-1976D2?logo=shield&logoColor=white)](#governance)
-[![Cloud Native](https://img.shields.io/badge/Cloud-Native-4285F4?logo=kubernetes&logoColor=white)](#deployment)
-
-## 🌍 Vision
-
-DevFoundry is an **agent-driven software factory** that automates the full SDLC — from idea to deployment — by turning product concepts into working, secure, compliant, and deployable software through **collaborating AI agents**, structured workflows, and governance gates.
-
-**Instead of humans manually coordinating dozens of tools, DevFoundry agents coordinate each stage of the SDLC using policies, context, and AI reasoning — just like a self-managed DevOps team.**
+[![Agent-Driven](https://img.shields.io/badge/Agent-Driven-9C27B0?logo=robot&logoColor=white)](#agent-ecosystem)
+[![Full SDLC](https://img.shields.io/badge/Full-SDLC-FF6F00?logo=infinity&logoColor=white)](#end-to-end-lifecycle)
+[![Governed](https://img.shields.io/badge/Governed-DevOps-1976D2?logo=shield&logoColor=white)](#governance--compliance)
+[![Cloud Native](https://img.shields.io/badge/Cloud-Native-4285F4?logo=googlecloud&logoColor=white)](#r1-platform-stack)
+[![Enterprise Ready](https://img.shields.io/badge/Enterprise-Ready-2E8B57?logo=enterprise&logoColor=white)](#enterprise-readiness)
 
 ---
 
-## 🧭 Core Purpose
+## 🔮 The DevFoundry Promise
 
-DevFoundry exists to **eliminate the friction between ideation, design, coding, and deployment** in enterprise environments.
+DevFoundry is not just a code generator — it's a **self-driving SDLC engine** that can:
 
-It's the **DevOps evolution**: from CI/CD → **AI-driven Continuous Software Creation**.
+1. **🧭 Understand** a business or technical concept
+2. **🏛️ Architect** the solution with enterprise patterns
+3. **⚙️ Generate and test** the code with built-in security
+4. **🚀 Deploy** it securely to the cloud
+5. **🧩 Govern** and monitor it through policy-based automation
 
-### The DevFoundry Promise
-1. **Submit a Concept** → *"Build a secure API for asset onboarding with role-based access and audit logging"*
-2. **AI Agents Generate Everything** → ADR, API Spec, Service Code, Tests, IaC, CI/CD Pipelines, Security Controls
-3. **Deploy Automatically** → GitHub repository, Cloud Build, target environment deployment
-4. **Enterprise Governance** → Every stage passes through agentic review & approval gates
+**Every stage is executed and validated by a system of collaborating AI agents, ensuring speed, consistency, and compliance.**
 
 ---
 
-## 🧩 Platform Components
+## 🧩 End-to-End Lifecycle
 
-| Layer | Function | Key Actors |
-|-------|----------|------------|
-| **Agent Orchestration** | Multi-agent graph executing SDLC steps (Research → ADR → API → Code → IaC → Test → Deploy) | Research Agent, Architect Agent, Dev Agent, SRE Agent, Security Agent |
-| **Prompt Intelligence** | Contextual prompt library with role-based templates & chain-of-thought memory per agent | Model Orchestrator |
-| **Workflow & Governance** | Defines approval workflows, RASCI mapping, sign-offs, rollback logic | PMO/Architecture Board |
-| **Policy & Compliance** | Injects ISO 27001, OWASP, CIS, NIST controls into code, pipelines, and IaC | Compliance Agent |
-| **UI & Collaboration** | GUI for non-technical users — visualize pipeline, approve ADRs, monitor builds | DevFoundry Studio |
-| **Integration & Infrastructure** | GitHub, Cloud Build, Azure DevOps, Jira, Slack, Multi-LLM APIs | Connectors |
+DevFoundry delivers transformation through **five coordinated stages**:
+
+| Stage | Purpose | Automated Outputs | Responsible Agents | GCP Components |
+|-------|---------|-------------------|-------------------|----------------|
+| **🧭 Conceptualise** | Capture business intent, requirements, and context | Vision Document, Requirement Matrix, Risk Register, Standards Mapping | Product Agent, Research Agent, Compliance Agent | Vertex AI, Firestore, Cloud Run |
+| **🏛️ Architect** | Transform requirements into enterprise architecture | ADRs, Design Diagrams, OpenAPI Specs, Security Controls | Architect Agent, API Agent, Security Agent | Vertex AI, Cloud Storage, GitHub |
+| **⚙️ Engineer** | Generate and validate implementation code and infrastructure | Source Code, Tests, IaC Templates, CI/CD Pipelines | Developer Agent, IaC Agent, Tester Agent | Cloud Build, Artifact Registry, Secret Manager |
+| **🚀 Deploy** | Release to cloud with runtime observability | Cloud Services, Monitoring Dashboards, Rollback Rules | Release Agent, SRE Agent | Cloud Run, Monitoring, Logging, Pub/Sub |
+| **🧩 Govern** | Enforce governance, traceability, and continuous compliance | Audit Logs, SBOMs, Compliance Reports, Metrics Feedback | Governance Agent, Knowledge Agent | Cloud Logging, IAP, Firestore |
 
 ---
 
 ## 🧠 Agent Ecosystem
 
+DevFoundry uses a **graph of specialized agents**, each performing a discrete stage of the software lifecycle. Agents interact asynchronously, sharing artifacts and state through a central orchestrator.
+
 ### Core Agents
 
-| Agent | Role | Responsibilities |
-|--------|------|------------------|
-| 🧩 **Research Agent** | Requirements Analysis | Reads requirements, extracts goals, dependencies, risks. Suggests related standards/frameworks |
-| 🏛️ **Architect Agent** | System Design | Generates ADRs, component diagrams, technology stack, interfaces, and design patterns |
-| 🔌 **API Agent** | Interface Design | Designs OpenAPI specs, schema validation, endpoint documentation |
-| 💻 **Developer Agent** | Code Generation | Writes production-ready backend/frontend code, unit tests, and Dockerfiles |
-| 🔐 **Security Agent** | Security & Compliance | Enforces policy packs, injects security controls, runs SAST/DAST scans |
-| ⚙️ **SRE Agent** | Infrastructure | Builds IaC (Terraform, Helm), CI/CD YAMLs, and deployment scripts |
-| 🧾 **Reviewer Agent** | Quality Assurance | Performs code review, linting, documentation, and compliance validation |
-| 📦 **Release Agent** | Deployment | Handles tagging, versioning, release notes, and deployment approvals |
+| Agent | Function | Key Deliverables |
+|-------|----------|------------------|
+| **🎯 Product Agent** | Captures initial ideas, aligns to business goals, identifies success metrics | Concept Brief, Feature Map |
+| **🔍 Research Agent** | Gathers domain context, comparable architectures, standards, and dependencies | Reference Material, Control Catalogue |
+| **🏛️ Architect Agent** | Translates requirements into conceptual, logical, and physical architectures | ADRs, Design Diagrams |
+| **🔌 API Agent** | Defines interfaces, schemas, and OpenAPI specs with security controls | API Spec, Schema Definitions |
+| **💻 Developer Agent** | Generates application code adhering to style guides and security baselines | Service Code, Tests, Dockerfile |
+| **🧪 Tester Agent** | Creates test suites and validates build integrity through CI pipelines | Test Reports, Coverage Results |
+| **⚙️ IaC Agent** | Builds Terraform or Helm modules for reproducible environments | IaC Scripts, Deployment Configs |
+| **🚀 SRE Agent** | Automates deployment, scaling, rollback, and observability setups | Deployment Pipelines, Dashboards |
+| **🔐 Security Agent** | Injects controls, performs SBOM generation, vulnerability scans | SBOM, Vulnerability Reports |
+| **🧾 Governance Agent** | Enforces approval workflows, tracks RASCI roles, maintains audit logs | Sign-off Records, Audit Trails |
+| **🧠 Knowledge Agent** | Monitors operations, analyzes feedback, suggests optimizations | Insights Report, Improvements |
 
 ### Agent Graph Execution
 
-Each agent operates within a **dependency graph** defined by inputs and outputs:
-
 ```mermaid
 graph TB
-    A[Research Agent] --> B[Architect Agent]
-    B --> C[API Agent]
-    B --> D[Security Agent]
-    C --> E[Developer Agent]
-    D --> E
-    E --> F[SRE Agent]
-    E --> G[Reviewer Agent]
-    F --> H[Release Agent]
-    G --> H
+    A[Product Agent] --> B[Research Agent]
+    B --> C[Architect Agent]
+    C --> D[API Agent]
+    C --> E[Security Agent]
+    D --> F[Developer Agent]
+    E --> F
+    F --> G[Tester Agent]
+    F --> H[IaC Agent]
+    G --> I[SRE Agent]
+    H --> I
+    I --> J[Release Agent]
+    E --> K[Governance Agent]
+    J --> K
+    K --> L[Knowledge Agent]
     
     style A fill:#9C27B0,color:#fff
-    style B fill:#2196F3,color:#fff
-    style H fill:#4CAF50,color:#fff
+    style C fill:#2196F3,color:#fff
+    style F fill:#FF9800,color:#fff
+    style J fill:#4CAF50,color:#fff
+    style K fill:#1976D2,color:#fff
 ```
 
 ---
 
-## 🏗️ System Architecture
+## ⚙️ How DevFoundry Realizes DevOps
 
-### 1️⃣ Input Layer
-- **GUI Interface** (DevFoundry Studio)
-- **CLI/API** for programmatic access
-- **Integration APIs** (Jira, Slack, etc.)
+DevFoundry embeds the **seven pillars of modern DevOps** directly into its architecture:
 
-### 2️⃣ Agent Graph Execution
-Workflow engine (Temporal/Argo) manages the DAG:
-```
-Research → ADR → API Spec → Code → Tests → IaC → Security → Deploy
-```
-
-### 3️⃣ Artifact Persistence
-- **Version Control**: All generated assets in GitHub/GitLab
-- **Metadata Storage**: Postgres/Firestore for run tracking
-- **Audit Trails**: Complete lineage and approval workflows
-
-### 4️⃣ CI/CD Integration
-- **Multi-Platform**: Cloud Build, GitHub Actions, Azure Pipelines
-- **Feedback Loops**: Build status monitoring and workflow updates
-- **GitOps**: Pull request workflows with automated reviews
-
-### 5️⃣ Observability & Governance
-- **Audit Logs**: Complete compliance trails
-- **Agent Telemetry**: Token usage, success rates, performance metrics
-- **Policy Compliance**: Real-time compliance reporting
+| DevOps Pillar | DevFoundry Mechanism |
+|---------------|----------------------|
+| **Continuous Integration** | Every agent commit triggers Cloud Build with linting, tests, SBOM, and vulnerability scans |
+| **Continuous Delivery** | Cloud Build pipelines auto-deploy to Cloud Run with approval and compliance gates |
+| **Continuous Testing** | Unit, integration, and compliance tests generated and executed automatically |
+| **Continuous Security** | Policy packs, license checks, secret scanning, SAST/DAST in every build |
+| **Continuous Monitoring** | Cloud Monitoring dashboards with build health, latency, and uptime metrics |
+| **Continuous Feedback** | Production data feeds back to Knowledge Agent for next-cycle improvements |
+| **Continuous Compliance** | Automated control mapping (ISO 27001, NIST CSF) and evidence collection |
 
 ---
 
-## 🖥️ DevFoundry Studio (UI Experience)
+## 🧭 Technical Architecture
 
-### Core Interfaces
-- **🚀 Launchpad** → Start new projects, define inputs, view generated ADRs
-- **🕸️ Agent Graph Visualizer** → Real-time agent execution status and outputs
-- **📁 Artifact Explorer** → Browse generated APIs, IaC, test coverage, compliance results
-- **📊 Command Dashboard** → Project velocity, policy compliance %, cost usage, agent reliability
-- **✅ Approval Console** → Human-in-the-loop governance and sign-offs
+### 1️⃣ Agent Orchestration Layer
+- Executes multi-step DAG workflows
+- Manages agent states, retries, and artifact sharing
+- Built on lightweight task orchestration (Temporal/Argo/Celery)
 
-### User Roles
-- **Product Owners** → Submit requirements, approve ADRs, monitor delivery
-- **Architects** → Review technical decisions, approve design patterns
-- **Security Teams** → Validate compliance, approve security controls
-- **Operations** → Monitor deployments, manage infrastructure
+### 2️⃣ Prompt Intelligence Layer
+- Library of structured prompt templates per agent
+- Context persistence for consistency across generations
+- Multi-model routing (Vertex AI primary, OpenAI/Claude support)
+
+### 3️⃣ Workflow & Governance Layer
+- Manages approvals, RASCI roles, and evidence trails
+- Stores decisions, artifact hashes, and approval events in Firestore
+
+### 4️⃣ Policy & Compliance Layer
+- Embeds control sets (OWASP, CIS, ISO, NIST) into artifacts
+- Validates IaC and pipeline configs for compliance before merge
+
+### 5️⃣ Integration & Infrastructure Layer
+- Connectors for GitHub, Cloud Build, Secret Manager, Artifact Registry
+- IaC via Terraform ensures reproducible deployments
+- Observability through Cloud Logging & Monitoring
+
+### 6️⃣ User Experience Layer
+- **DevFoundry Studio** web console for:
+  - Submitting ideas and configuring agents
+  - Visualizing agent graph and pipeline progress
+  - Reviewing ADRs, approving builds, viewing artifacts
+  - Real-time status via Pub/Sub updates
 
 ---
 
-## 🛡️ Security & Compliance Framework
+## 🧱 R1 Platform Stack (Google Cloud)
 
-Every artifact created is **automatically tagged** with its control lineage:
+| Domain | Service | Purpose |
+|--------|---------|---------|
+| **Compute** | Cloud Run | Host Orchestrator, UI, and generated services |
+| **CI/CD** | Cloud Build | Automate lint, test, build, deploy, scan |
+| **Artifacts** | Artifact Registry | Store container images and build outputs |
+| **IaC** | Terraform + Cloud Storage | Reproducible environments, centralized state |
+| **Security** | Secret Manager, IAP, IAM | Secure secrets and access control |
+| **Observability** | Cloud Logging + Monitoring | End-to-end observability |
+| **Data** | Firestore / Cloud SQL | Run metadata, audit logs, artifact records |
+| **AI Models** | Vertex AI | Primary LLM provider for all agent interactions |
 
-### Built-in Compliance
-- **ADR**: Architecture controls (network segregation, auth patterns)
-- **Code**: Secure coding checks (OWASP Top 10, CWE prevention)
-- **IaC**: CIS benchmarks, cloud security best practices
-- **Pipelines**: ISO 27001 and NIST CSF mappings
+---
 
-### Security-by-Design
+## 🛡️ Governance & Compliance
+
+DevFoundry operates within **regulated, enterprise environments**, embedding governance directly into pipelines:
+
+### Built-in Governance
+- **Role-based approvals** for each SDLC stage (Architecture, Security, QA, Release)
+- **Audit evidence** automatically generated: ADRs, SBOMs, vulnerability reports, test results
+- **Traceability** of every decision and artifact hash stored immutably
+- **Compliance packs** for ISO 27001, NIST CSF, and CIS benchmarks
+- **Security gates** that prevent deployment on policy violations
+
+### Compliance Frameworks
 ```yaml
-Compliance Frameworks:
-  - ISO 27001
-  - SOC 2 Type II
-  - NIST Cybersecurity Framework
-  - OWASP ASVS
-  - CIS Controls
+Standards Supported:
+  - ISO 27001 (Information Security)
+  - SOC 2 Type II (Trust Services)
+  - NIST CSF (Cybersecurity Framework)
+  - OWASP ASVS (Application Security)
+  - CIS Controls (Critical Security Controls)
   
-Security Controls:
-  - Static Application Security Testing (SAST)
-  - Dynamic Application Security Testing (DAST)
-  - Infrastructure as Code Security Scanning
-  - Supply Chain Security (SBOM generation)
-  - Runtime Security Monitoring
+Evidence Generation:
+  - Architecture Decision Records (ADRs)
+  - Software Bill of Materials (SBOM)
+  - Vulnerability Assessment Reports
+  - Test Coverage and Results
+  - Deployment Approval Trails
 ```
 
 ---
 
-## 🔗 Integration Ecosystem
+## 📊 Lifecycle Example
 
-### LLM Providers
-- **Google Vertex AI** (Gemini models)
-- **OpenAI** (GPT-4, GPT-4 Turbo)
-- **Anthropic Claude**
-- **Azure OpenAI**
-- **Local/Private Models** (Llama, Mistral)
+### User Input
+*"Build a secure API for asset onboarding with role-based access and audit logging."*
 
-### Development Platforms
-- **Version Control**: GitHub, GitLab, Bitbucket
-- **CI/CD**: Cloud Build, GitHub Actions, Jenkins, Azure DevOps
-- **Infrastructure**: Cloud Run, Kubernetes, App Services, Lambda
+### System Flow
+1. **🧭 Conceptualize**: Product Agent analyzes goal → Research Agent identifies security frameworks → Compliance Agent applies ISO 27001 controls
+2. **🏛️ Architect**: Architect Agent drafts ADR + component diagram → API Agent designs endpoints with RBAC schema  
+3. **⚙️ Engineer**: Developer Agent generates FastAPI code, tests, Dockerfile → IaC Agent writes Terraform → Tester Agent validates
+4. **🚀 Deploy**: Cloud Build pipeline runs tests, builds image, deploys to Cloud Run
+5. **🧩 Govern**: Security Agent runs SBOM + scan → Governance Agent captures approval trail → Knowledge Agent logs metrics
 
-### Enterprise Integration
-- **Identity**: Okta, Azure AD, Google Cloud IAM
-- **Project Management**: Jira, Azure DevOps, Linear
-- **Communication**: Slack, Microsoft Teams
-- **Monitoring**: Grafana, Prometheus, ELK, Cloud Logging
+### Outcome
+**Within minutes**, a fully compliant, observable, and version-controlled microservice is deployed to Cloud Run — with all documentation, security scans, and governance approvals in place.
 
 ---
 
-## 🚀 Deployment Modes
+## 🏢 Enterprise Readiness
 
-| Mode | Description | Use Case |
-|------|-------------|----------|
-| **Cloud SaaS** | Hosted orchestration with GitHub & multi-LLM integration | Startups, SMBs, rapid prototyping |
-| **Enterprise Self-Hosted** | Deploy in customer's cloud with private model routing | Large enterprises, regulated industries |
-| **Air-Gapped** | For defense or critical infrastructure using local LLMs | Government, defense, critical infrastructure |
-
----
-
-## 📈 Value Proposition
-
-### By Stakeholder
-
-| Stakeholder | Value Delivered |
-|-------------|----------------|
-| **Developers** | Focus on business logic, not boilerplate; automated scaffolding and testing |
-| **Architects** | Consistent ADRs, automated design guardrails, compliance by design |
-| **Security Teams** | Automated policy enforcement, complete audit trails, security-by-design |
-| **Product Teams** | Faster time-to-market, predictable delivery, measurable quality |
-| **Executives** | Reduced development costs, standardized processes, accelerated innovation |
-
-### Business Impact
-- **⚡ 10x Faster Development** → Concept to deployment in hours, not weeks
-- **🔒 100% Compliance** → Built-in governance and audit trails
-- **💰 60% Cost Reduction** → Automated manual processes and reduced rework
-- **📈 Predictable Delivery** → Standardized patterns and automated quality gates
+| Capability | Description |
+|------------|-------------|
+| **Multi-tenant Security** | Org/project-based isolation with per-team IAM roles |
+| **Audit & Traceability** | Immutable logs for every artifact and approval decision |
+| **Resilience** | Stateless Cloud Run services with auto-scaling and rollback |
+| **Interoperability** | Modular architecture — LLM, CI/CD, and IaC layers are pluggable |
+| **Extensibility** | New agents or policy packs without affecting core orchestration |
 
 ---
 
-## 🛠️ Current Implementation Status
+## 🚀 Release 1 Scope
 
-### ✅ Phase 1: Foundation (Current)
-- ✅ Agent-based architecture
-- ✅ Basic workflow orchestration  
-- ✅ Multi-provider LLM integration (Vertex AI)
-- ✅ GitHub integration and artifact generation
-- ✅ Enterprise folder structure
+### Current Capabilities
+- ✅ **Core agent orchestration** (Research → ADR → API → Code → Test → Deploy)
+- ✅ **CI/CD integration** via Cloud Build and Cloud Run
+- ✅ **Vertex AI** as primary model provider
+- ✅ **Basic governance** UI for approvals and evidence
+- ✅ **Policy enforcement** (lint, tests, SBOM, vulnerability scan, license check)
+- ✅ **Terraform-based IaC** for reproducible environments
 
-### 🚧 Phase 2: Agent Intelligence (In Progress)
-- 🔄 Multi-agent graph with dependencies
-- 🔄 Enhanced prompt engineering and context management
-- 🔄 Persistent workflow state and recovery
-- 🔄 Multi-model routing and fallback strategies
+### Outcome
+A **fully functional, end-to-end agentic DevOps pipeline** that can take a requirement, produce code, deploy it, and enforce compliance — all within GCP.
 
-### 📋 Phase 3: Governance & UI (Planned)
-- 📋 DevFoundry Studio (React frontend)
-- 📋 Human-in-the-loop approval workflows
-- 📋 Policy enforcement and compliance gates
-- 📋 Role-based access control and permissions
+---
 
-### 🎯 Phase 4: Enterprise Features (Roadmap)
-- 🎯 GitOps PR-based workflows
-- 🎯 Advanced observability and metrics
-- 🎯 Security scanning integration
-- 🎯 Multi-cloud IaC generation
+## 🗺️ Roadmap Highlights
+
+| Milestone | Focus | Key Additions |
+|-----------|-------|---------------|
+| **R1.1** | Security Attestation & Provenance | Container signing (Cosign), SLSA L3 compliance, blueprint catalog |
+| **R1.2** | Multi-Cloud & Model Routing | Azure/AWS deployments, Anthropic & OpenAI integration, cost telemetry |
+| **R1.3** | Multi-Service Architectures | Monorepo graphs, cross-service dependencies, orchestration visualization |
+| **R2.0** | Autonomous SDLC Governance | Self-optimizing agents, predictive quality scoring, generative documentation |
 
 ---
 
 ## 🚀 Quick Start
 
-### Generate Your First Service
+### DevFoundry Studio (Web Interface)
+```
+https://studio.devfoundry.com
+```
 
+### DevFoundry CLI
 ```bash
-# Install DevFoundry CLI
+# Install CLI
 npm install -g @devfoundry/cli
 
-# Initialize new project
-devfoundry init my-service
+# Initialize project
+devfoundry init asset-onboarding-api
 
-# Generate complete service
-devfoundry generate \
-  --name "user-management-api" \
-  --requirement "Secure user management with RBAC, audit logging, and REST API" \
+# Configure requirements
+devfoundry config set \
   --architecture "microservice" \
-  --deployment "cloud-run"
+  --deployment "cloud-run" \
+  --compliance "iso-27001"
+
+# Generate complete solution
+devfoundry generate \
+  --requirement "Secure API for asset onboarding with RBAC and audit logging"
 ```
 
 ### Expected Output
@@ -264,44 +269,94 @@ devfoundry generate \
 {
   "success": true,
   "run_id": "df-20241018-001",
-  "agents_completed": 8,
-  "artifacts_generated": {
-    "adr": "docs/ADR.md",
-    "api_spec": "openapi.yaml", 
-    "source_code": "src/",
-    "tests": "tests/",
-    "infrastructure": "terraform/",
-    "pipelines": ".github/workflows/"
+  "agents_completed": 11,
+  "lifecycle_stages": {
+    "conceptualize": "✅ Requirements captured with ISO 27001 controls",
+    "architect": "✅ ADR and API design with RBAC schema completed", 
+    "engineer": "✅ FastAPI code, tests, and Terraform generated",
+    "deploy": "✅ Cloud Run deployment with monitoring configured",
+    "govern": "✅ SBOM generated, compliance validated, audit trail created"
   },
-  "repository_url": "https://github.com/your-org/user-management-api",
-  "deployment_status": "pipeline_triggered",
-  "compliance_score": 98
+  "artifacts": {
+    "repository": "https://github.com/your-org/asset-onboarding-api",
+    "service_url": "https://asset-onboarding-api-12345.run.app",
+    "monitoring": "https://console.cloud.google.com/monitoring/dashboards/...",
+    "compliance_score": 98,
+    "sbom": "artifacts/sbom.json",
+    "audit_trail": "governance/audit-20241018-001.json"
+  }
 }
 ```
 
 ---
 
-## 🎯 Tagline Options
+## 💡 Why DevFoundry Matters
 
-- **"From Idea to Deployed Code — in One Conversation"**
-- **"The AI-Powered Software Factory"**  
-- **"Governed DevOps meets Agent Intelligence"**
-- **"Your Enterprise SDLC, Re-engineered by Agents"**
-- **"Where Product Vision Becomes Production Reality"**
+### The Problem
+**Traditional DevOps automates deployment, not development.**
+
+### The Solution
+**DevFoundry bridges that gap** — it turns DevOps into **Dev-through-Ops**, unifying conceptual design, engineering, delivery, and compliance under one intelligent, governed system.
+
+### The Impact
+```
+DevFoundry = Dev + Foundry
+```
+A platform where software is **forged intelligently**, not just written.
+
+**This is how the next generation of enterprises will build software:**
+- ⚡ **Faster** — concept to deployment in hours
+- 🔒 **Safer** — security and compliance by design  
+- 📋 **Compliant** — automated governance and audit trails
+- 🔄 **Self-improving** — continuous learning and optimization
+
+---
+
+## 🎯 Value Proposition
+
+### Business Impact
+- **⚡ 10x Development Speed** → Concept to deployment in hours, not weeks
+- **💰 60% Cost Reduction** → Eliminate manual processes and rework
+- **🔒 100% Compliance** → Built-in governance and security controls
+- **📈 Predictable Delivery** → Standardized patterns and automated quality gates
+- **🚀 Innovation Acceleration** → Focus on business logic, not infrastructure
+
+### Stakeholder Benefits
+| Stakeholder | Value Delivered |
+|-------------|-----------------|
+| **Executives** | Faster time-to-market, reduced costs, predictable delivery, competitive advantage |
+| **Product Teams** | Focus on features, not infrastructure; automated quality and compliance |  
+| **Architects** | Consistent patterns, automated ADRs, enterprise-grade design enforcement |
+| **Developers** | Generate boilerplate automatically, focus on business logic and innovation |
+| **Security Teams** | Security-by-design, automated compliance, complete audit trails |
+| **Operations** | Standardized deployments, automated monitoring, self-healing infrastructure |
 
 ---
 
 ## 🤝 Enterprise Adoption
 
 ### Getting Started
-1. **[Request Demo](https://devfoundry.com/demo)** → See the complete platform in action
-2. **[Enterprise Trial](https://devfoundry.com/trial)** → 30-day evaluation with full support
-3. **[Architecture Review](https://devfoundry.com/consulting)** → Custom integration planning
+1. **[Schedule Demo](https://devfoundry.com/demo)** → See the complete platform in action
+2. **[Architecture Workshop](https://devfoundry.com/workshop)** → Custom integration and migration planning  
+3. **[Enterprise Trial](https://devfoundry.com/trial)** → 30-day evaluation with dedicated support
+
+### Deployment Options
+- **🌐 Cloud SaaS** → Hosted platform with multi-tenant security
+- **🏢 Enterprise Self-Hosted** → Private cloud deployment with custom controls
+- **🔒 Air-Gapped** → On-premises with local LLMs for defense/critical infrastructure
 
 ### Support Tiers
-- **Community** → GitHub issues and community support
-- **Professional** → SLA-backed support with dedicated success manager  
-- **Enterprise** → 24/7 support, custom agents, private cloud deployment
+- **Community** → GitHub support and documentation
+- **Professional** → SLA support with dedicated success manager
+- **Enterprise** → 24/7 support, custom agents, private deployment, consulting services
+
+---
+
+## 📞 Contact
+
+**Enterprise Inquiries**: [enterprise@devfoundry.com](mailto:enterprise@devfoundry.com)  
+**Technical Questions**: [support@devfoundry.com](mailto:support@devfoundry.com)  
+**Partnership Opportunities**: [partners@devfoundry.com](mailto:partners@devfoundry.com)
 
 ---
 
@@ -310,9 +365,9 @@ devfoundry generate \
 DevFoundry Platform - Enterprise License  
 © 2024 DevFoundry. All rights reserved.
 
-For licensing inquiries and enterprise agreements:  
-**[enterprise@devfoundry.com](mailto:enterprise@devfoundry.com)**
-
 ---
 
-**Built with ❤️ by the DevFoundry team — where human creativity meets artificial intelligence to create the future of software development.**
+**Built with ❤️ by the DevFoundry team**  
+*Where human creativity meets artificial intelligence to create the future of software development*
+
+**DevFoundry: The evolution from DevOps to Dev-through-Ops**
