@@ -1,295 +1,318 @@
-# DevFactory 🏭
+# DevFoundry 🏗️
 
-**Enterprise AI-Powered Microservice Generation Platform**
+**The Agentic Software Development Platform**
 
-[![Cloud Run](https://img.shields.io/badge/Google%20Cloud-Run-4285F4?logo=googlecloud&logoColor=white)](https://cloud.google.com/run)
-[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-Framework-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![AI Powered](https://img.shields.io/badge/AI-Vertex%20AI%20%2B%20Gemini-FF6F00?logo=google&logoColor=white)](https://cloud.google.com/vertex-ai)
-[![Enterprise](https://img.shields.io/badge/Enterprise-Ready-2E8B57?logo=enterprise&logoColor=white)](#)
+*From Idea to Deployed Code — in One Conversation*
 
-## 🎯 **Overview**
+[![Agent-Driven](https://img.shields.io/badge/Agent-Driven-9C27B0?logo=robot&logoColor=white)](#agents)
+[![Multi-Model](https://img.shields.io/badge/Multi--Model-LLM-FF6F00?logo=openai&logoColor=white)](#llm-providers)
+[![GitOps](https://img.shields.io/badge/GitOps-Ready-2E8B57?logo=git&logoColor=white)](#gitops)
+[![Governed](https://img.shields.io/badge/Governed-SDLC-1976D2?logo=shield&logoColor=white)](#governance)
+[![Cloud Native](https://img.shields.io/badge/Cloud-Native-4285F4?logo=kubernetes&logoColor=white)](#deployment)
 
-DevFactory is an enterprise-grade platform that transforms natural language requirements into production-ready, cloud-native microservices. Powered by Google Vertex AI and built on modern cloud infrastructure, it automates the complete development lifecycle from architectural decisions to deployment-ready applications.
+## 🌍 Vision
 
-### **🚀 Key Capabilities**
-- **Intelligent Service Generation**: AI-powered creation of complete microservices
-- **Enterprise Architecture**: Production-ready patterns and best practices
-- **Cloud-Native Deployment**: Containerized services ready for Kubernetes/Cloud Run
-- **Automated Documentation**: ADRs, OpenAPI specs, and comprehensive guides
-- **Quality Assurance**: Built-in testing frameworks and validation
+DevFoundry is an **agent-driven software factory** that automates the full SDLC — from idea to deployment — by turning product concepts into working, secure, compliant, and deployable software through **collaborating AI agents**, structured workflows, and governance gates.
+
+**Instead of humans manually coordinating dozens of tools, DevFoundry agents coordinate each stage of the SDLC using policies, context, and AI reasoning — just like a self-managed DevOps team.**
 
 ---
 
-## ✨ **Platform Features**
+## 🧭 Core Purpose
 
-### 🤖 **Advanced AI Engine**
-- **Primary AI**: Google Vertex AI with latest Gemini models
-- **Intelligent Fallbacks**: Robust template system ensuring 100% availability
-- **Context-Aware**: Understands enterprise patterns and architectural requirements
-- **Continuous Learning**: Improves with each generation cycle
+DevFoundry exists to **eliminate the friction between ideation, design, coding, and deployment** in enterprise environments.
 
-### 🏗️ **Enterprise Architecture**
-- **Microservices-First**: Native support for distributed systems
-- **Security-by-Design**: Built-in authentication, authorization, and compliance
-- **Scalable Infrastructure**: Auto-scaling, load balancing, and high availability
-- **DevOps Integration**: CI/CD pipelines, monitoring, and observability
+It's the **DevOps evolution**: from CI/CD → **AI-driven Continuous Software Creation**.
 
-### 📦 **Complete Service Generation**
-- **Architecture Decision Records (ADR)**: Documented architectural choices
-- **OpenAPI 3.1 Specifications**: Industry-standard API documentation
-- **Production Code**: FastAPI applications with health checks, CRUD operations
-- **Test Suites**: Comprehensive pytest test coverage
-- **Deployment Configuration**: Docker, Kubernetes, and Cloud Run ready
-
-### 🔄 **DevOps Integration**
-- **GitHub Integration**: Automated repository management and commits
-- **CI/CD Pipelines**: Cloud Build triggers and deployment automation  
-- **Quality Gates**: Automated testing, linting, and security scanning
-- **Monitoring**: Structured logging, metrics, and alerting
+### The DevFoundry Promise
+1. **Submit a Concept** → *"Build a secure API for asset onboarding with role-based access and audit logging"*
+2. **AI Agents Generate Everything** → ADR, API Spec, Service Code, Tests, IaC, CI/CD Pipelines, Security Controls
+3. **Deploy Automatically** → GitHub repository, Cloud Build, target environment deployment
+4. **Enterprise Governance** → Every stage passes through agentic review & approval gates
 
 ---
 
-## 🏗️ **Architecture**
+## 🧩 Platform Components
+
+| Layer | Function | Key Actors |
+|-------|----------|------------|
+| **Agent Orchestration** | Multi-agent graph executing SDLC steps (Research → ADR → API → Code → IaC → Test → Deploy) | Research Agent, Architect Agent, Dev Agent, SRE Agent, Security Agent |
+| **Prompt Intelligence** | Contextual prompt library with role-based templates & chain-of-thought memory per agent | Model Orchestrator |
+| **Workflow & Governance** | Defines approval workflows, RASCI mapping, sign-offs, rollback logic | PMO/Architecture Board |
+| **Policy & Compliance** | Injects ISO 27001, OWASP, CIS, NIST controls into code, pipelines, and IaC | Compliance Agent |
+| **UI & Collaboration** | GUI for non-technical users — visualize pipeline, approve ADRs, monitor builds | DevFoundry Studio |
+| **Integration & Infrastructure** | GitHub, Cloud Build, Azure DevOps, Jira, Slack, Multi-LLM APIs | Connectors |
+
+---
+
+## 🧠 Agent Ecosystem
+
+### Core Agents
+
+| Agent | Role | Responsibilities |
+|--------|------|------------------|
+| 🧩 **Research Agent** | Requirements Analysis | Reads requirements, extracts goals, dependencies, risks. Suggests related standards/frameworks |
+| 🏛️ **Architect Agent** | System Design | Generates ADRs, component diagrams, technology stack, interfaces, and design patterns |
+| 🔌 **API Agent** | Interface Design | Designs OpenAPI specs, schema validation, endpoint documentation |
+| 💻 **Developer Agent** | Code Generation | Writes production-ready backend/frontend code, unit tests, and Dockerfiles |
+| 🔐 **Security Agent** | Security & Compliance | Enforces policy packs, injects security controls, runs SAST/DAST scans |
+| ⚙️ **SRE Agent** | Infrastructure | Builds IaC (Terraform, Helm), CI/CD YAMLs, and deployment scripts |
+| 🧾 **Reviewer Agent** | Quality Assurance | Performs code review, linting, documentation, and compliance validation |
+| 📦 **Release Agent** | Deployment | Handles tagging, versioning, release notes, and deployment approvals |
+
+### Agent Graph Execution
+
+Each agent operates within a **dependency graph** defined by inputs and outputs:
 
 ```mermaid
 graph TB
-    A[DevFactory Platform] --> B[AI Generation Engine]
-    B --> C[Vertex AI / Gemini]
-    B --> D[Enterprise Templates]
-    A --> E[Service Orchestrator]
-    E --> F[Code Generation]
-    E --> G[Documentation Generation]
-    E --> H[Test Generation]
-    A --> I[DevOps Pipeline]
-    I --> J[GitHub Integration]
-    I --> K[CI/CD Automation]
-    I --> L[Cloud Deployment]
+    A[Research Agent] --> B[Architect Agent]
+    B --> C[API Agent]
+    B --> D[Security Agent]
+    C --> E[Developer Agent]
+    D --> E
+    E --> F[SRE Agent]
+    E --> G[Reviewer Agent]
+    F --> H[Release Agent]
+    G --> H
     
-    style A fill:#2E8B57,color:#fff
-    style C fill:#FF6F00,color:#fff
-    style L fill:#4285F4,color:#fff
+    style A fill:#9C27B0,color:#fff
+    style B fill:#2196F3,color:#fff
+    style H fill:#4CAF50,color:#fff
 ```
-
-### **Core Platform Components**
-
-| Component | Technology | Purpose |
-|-----------|------------|---------|
-| **Orchestrator API** | FastAPI + Cloud Run | Central service coordination and request processing |
-| **AI Generation Engine** | Google Gen AI SDK | Intelligent content creation with Vertex AI |
-| **Template System** | Jinja2 + Custom | Enterprise-grade fallback templates |
-| **Repository Manager** | PyGithub + Git | Automated source code management |
-| **Deployment Pipeline** | Cloud Build + Docker | Containerized deployment automation |
-| **Monitoring Stack** | Cloud Logging + Metrics | Production observability and alerting |
 
 ---
 
-## 🚀 **Quick Start**
+## 🏗️ System Architecture
 
-### **Generate a Microservice**
+### 1️⃣ Input Layer
+- **GUI Interface** (DevFoundry Studio)
+- **CLI/API** for programmatic access
+- **Integration APIs** (Jira, Slack, etc.)
 
-```bash
-# Generate a complete microservice
-curl -X POST "https://devfactory-api.example.com/generate" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "service_name": "user-management-api",
-    "requirements": "Create a secure User Management API with authentication, RBAC, CRUD operations, and audit logging using FastAPI and PostgreSQL"
-  }'
+### 2️⃣ Agent Graph Execution
+Workflow engine (Temporal/Argo) manages the DAG:
+```
+Research → ADR → API Spec → Code → Tests → IaC → Security → Deploy
 ```
 
-### **Expected Output**
+### 3️⃣ Artifact Persistence
+- **Version Control**: All generated assets in GitHub/GitLab
+- **Metadata Storage**: Postgres/Firestore for run tracking
+- **Audit Trails**: Complete lineage and approval workflows
 
+### 4️⃣ CI/CD Integration
+- **Multi-Platform**: Cloud Build, GitHub Actions, Azure Pipelines
+- **Feedback Loops**: Build status monitoring and workflow updates
+- **GitOps**: Pull request workflows with automated reviews
+
+### 5️⃣ Observability & Governance
+- **Audit Logs**: Complete compliance trails
+- **Agent Telemetry**: Token usage, success rates, performance metrics
+- **Policy Compliance**: Real-time compliance reporting
+
+---
+
+## 🖥️ DevFoundry Studio (UI Experience)
+
+### Core Interfaces
+- **🚀 Launchpad** → Start new projects, define inputs, view generated ADRs
+- **🕸️ Agent Graph Visualizer** → Real-time agent execution status and outputs
+- **📁 Artifact Explorer** → Browse generated APIs, IaC, test coverage, compliance results
+- **📊 Command Dashboard** → Project velocity, policy compliance %, cost usage, agent reliability
+- **✅ Approval Console** → Human-in-the-loop governance and sign-offs
+
+### User Roles
+- **Product Owners** → Submit requirements, approve ADRs, monitor delivery
+- **Architects** → Review technical decisions, approve design patterns
+- **Security Teams** → Validate compliance, approve security controls
+- **Operations** → Monitor deployments, manage infrastructure
+
+---
+
+## 🛡️ Security & Compliance Framework
+
+Every artifact created is **automatically tagged** with its control lineage:
+
+### Built-in Compliance
+- **ADR**: Architecture controls (network segregation, auth patterns)
+- **Code**: Secure coding checks (OWASP Top 10, CWE prevention)
+- **IaC**: CIS benchmarks, cloud security best practices
+- **Pipelines**: ISO 27001 and NIST CSF mappings
+
+### Security-by-Design
+```yaml
+Compliance Frameworks:
+  - ISO 27001
+  - SOC 2 Type II
+  - NIST Cybersecurity Framework
+  - OWASP ASVS
+  - CIS Controls
+  
+Security Controls:
+  - Static Application Security Testing (SAST)
+  - Dynamic Application Security Testing (DAST)
+  - Infrastructure as Code Security Scanning
+  - Supply Chain Security (SBOM generation)
+  - Runtime Security Monitoring
+```
+
+---
+
+## 🔗 Integration Ecosystem
+
+### LLM Providers
+- **Google Vertex AI** (Gemini models)
+- **OpenAI** (GPT-4, GPT-4 Turbo)
+- **Anthropic Claude**
+- **Azure OpenAI**
+- **Local/Private Models** (Llama, Mistral)
+
+### Development Platforms
+- **Version Control**: GitHub, GitLab, Bitbucket
+- **CI/CD**: Cloud Build, GitHub Actions, Jenkins, Azure DevOps
+- **Infrastructure**: Cloud Run, Kubernetes, App Services, Lambda
+
+### Enterprise Integration
+- **Identity**: Okta, Azure AD, Google Cloud IAM
+- **Project Management**: Jira, Azure DevOps, Linear
+- **Communication**: Slack, Microsoft Teams
+- **Monitoring**: Grafana, Prometheus, ELK, Cloud Logging
+
+---
+
+## 🚀 Deployment Modes
+
+| Mode | Description | Use Case |
+|------|-------------|----------|
+| **Cloud SaaS** | Hosted orchestration with GitHub & multi-LLM integration | Startups, SMBs, rapid prototyping |
+| **Enterprise Self-Hosted** | Deploy in customer's cloud with private model routing | Large enterprises, regulated industries |
+| **Air-Gapped** | For defense or critical infrastructure using local LLMs | Government, defense, critical infrastructure |
+
+---
+
+## 📈 Value Proposition
+
+### By Stakeholder
+
+| Stakeholder | Value Delivered |
+|-------------|----------------|
+| **Developers** | Focus on business logic, not boilerplate; automated scaffolding and testing |
+| **Architects** | Consistent ADRs, automated design guardrails, compliance by design |
+| **Security Teams** | Automated policy enforcement, complete audit trails, security-by-design |
+| **Product Teams** | Faster time-to-market, predictable delivery, measurable quality |
+| **Executives** | Reduced development costs, standardized processes, accelerated innovation |
+
+### Business Impact
+- **⚡ 10x Faster Development** → Concept to deployment in hours, not weeks
+- **🔒 100% Compliance** → Built-in governance and audit trails
+- **💰 60% Cost Reduction** → Automated manual processes and reduced rework
+- **📈 Predictable Delivery** → Standardized patterns and automated quality gates
+
+---
+
+## 🛠️ Current Implementation Status
+
+### ✅ Phase 1: Foundation (Current)
+- ✅ Agent-based architecture
+- ✅ Basic workflow orchestration  
+- ✅ Multi-provider LLM integration (Vertex AI)
+- ✅ GitHub integration and artifact generation
+- ✅ Enterprise folder structure
+
+### 🚧 Phase 2: Agent Intelligence (In Progress)
+- 🔄 Multi-agent graph with dependencies
+- 🔄 Enhanced prompt engineering and context management
+- 🔄 Persistent workflow state and recovery
+- 🔄 Multi-model routing and fallback strategies
+
+### 📋 Phase 3: Governance & UI (Planned)
+- 📋 DevFoundry Studio (React frontend)
+- 📋 Human-in-the-loop approval workflows
+- 📋 Policy enforcement and compliance gates
+- 📋 Role-based access control and permissions
+
+### 🎯 Phase 4: Enterprise Features (Roadmap)
+- 🎯 GitOps PR-based workflows
+- 🎯 Advanced observability and metrics
+- 🎯 Security scanning integration
+- 🎯 Multi-cloud IaC generation
+
+---
+
+## 🚀 Quick Start
+
+### Generate Your First Service
+
+```bash
+# Install DevFoundry CLI
+npm install -g @devfoundry/cli
+
+# Initialize new project
+devfoundry init my-service
+
+# Generate complete service
+devfoundry generate \
+  --name "user-management-api" \
+  --requirement "Secure user management with RBAC, audit logging, and REST API" \
+  --architecture "microservice" \
+  --deployment "cloud-run"
+```
+
+### Expected Output
 ```json
 {
   "success": true,
-  "service_url": "https://github.com/your-org/user-management-api",
+  "run_id": "df-20241018-001",
+  "agents_completed": 8,
+  "artifacts_generated": {
+    "adr": "docs/ADR.md",
+    "api_spec": "openapi.yaml", 
+    "source_code": "src/",
+    "tests": "tests/",
+    "infrastructure": "terraform/",
+    "pipelines": ".github/workflows/"
+  },
+  "repository_url": "https://github.com/your-org/user-management-api",
   "deployment_status": "pipeline_triggered",
-  "estimated_completion": "5-10 minutes"
+  "compliance_score": 98
 }
 ```
 
 ---
 
-## 📁 **Generated Service Structure**
+## 🎯 Tagline Options
 
-DevFactory creates complete, production-ready projects:
-
-```
-generated-microservice/
-├── docs/
-│   ├── ADR.md                    # Architecture Decision Record
-│   ├── API.md                    # API Documentation
-│   └── DEPLOYMENT.md             # Deployment Guide
-├── src/
-│   ├── api/
-│   │   ├── __init__.py
-│   │   ├── main.py               # FastAPI application
-│   │   ├── models/               # Pydantic models
-│   │   ├── routes/               # API endpoints
-│   │   └── services/             # Business logic
-│   └── tests/
-│       ├── unit/                 # Unit tests
-│       ├── integration/          # Integration tests
-│       └── e2e/                  # End-to-end tests
-├── infrastructure/
-│   ├── Dockerfile                # Container configuration
-│   ├── docker-compose.yml        # Local development
-│   ├── k8s/                      # Kubernetes manifests
-│   └── terraform/                # Infrastructure as Code
-├── .github/
-│   └── workflows/                # CI/CD pipelines
-├── openapi.yaml                  # OpenAPI specification
-├── requirements.txt              # Python dependencies
-└── README.md                     # Service documentation
-```
+- **"From Idea to Deployed Code — in One Conversation"**
+- **"The AI-Powered Software Factory"**  
+- **"Governed DevOps meets Agent Intelligence"**
+- **"Your Enterprise SDLC, Re-engineered by Agents"**
+- **"Where Product Vision Becomes Production Reality"**
 
 ---
 
-## 🛠️ **Enterprise Configuration**
+## 🤝 Enterprise Adoption
 
-### **Environment Setup**
+### Getting Started
+1. **[Request Demo](https://devfoundry.com/demo)** → See the complete platform in action
+2. **[Enterprise Trial](https://devfoundry.com/trial)** → 30-day evaluation with full support
+3. **[Architecture Review](https://devfoundry.com/consulting)** → Custom integration planning
 
-```bash
-# Required environment variables
-export DEVFACTORY_PROJECT_ID="your-gcp-project"
-export DEVFACTORY_REGION="us-central1"
-export GITHUB_ORGANIZATION="your-org"
-export AI_MODEL_PREFERENCE="gemini-2.0-flash-exp"
-```
-
-### **Security Configuration**
-
-```yaml
-# Service Account Configuration
-service_account:
-  name: "devfactory-orchestrator"
-  roles:
-    - "aiplatform.user"
-    - "secretmanager.secretAccessor"
-    - "source.admin"
-    - "cloudbuild.builds.builder"
-
-# Secret Manager Configuration
-secrets:
-  - name: "GITHUB_PAT"
-    description: "GitHub Personal Access Token"
-  - name: "DATABASE_URL" 
-    description: "PostgreSQL connection string"
-```
+### Support Tiers
+- **Community** → GitHub issues and community support
+- **Professional** → SLA-backed support with dedicated success manager  
+- **Enterprise** → 24/7 support, custom agents, private cloud deployment
 
 ---
 
-## 📊 **Enterprise Features**
+## 📜 License
 
-### **🔐 Security & Compliance**
-- **Zero-Trust Architecture**: Every component is authenticated and authorized
-- **Secret Management**: Integration with Google Secret Manager and HashiCorp Vault
-- **Audit Logging**: Complete audit trail for compliance requirements
-- **RBAC Integration**: Role-based access control for all operations
+DevFoundry Platform - Enterprise License  
+© 2024 DevFoundry. All rights reserved.
 
-### **📈 Scalability & Performance**
-- **Auto-Scaling**: Horizontal and vertical scaling based on demand
-- **Load Balancing**: Intelligent traffic distribution
-- **Caching**: Multi-level caching for optimal performance
-- **CDN Integration**: Global content distribution
-
-### **🔍 Monitoring & Observability**
-- **Structured Logging**: JSON-formatted logs with correlation IDs
-- **Metrics & Alerting**: Prometheus-compatible metrics and alerts
-- **Distributed Tracing**: OpenTelemetry integration for request tracing
-- **Health Checks**: Comprehensive health monitoring and reporting
-
-### **🚀 Developer Experience**
-- **IDE Integration**: VS Code and IntelliJ plugins
-- **Local Development**: Docker Compose for local testing
-- **API Documentation**: Interactive Swagger/ReDoc interfaces
-- **SDK Generation**: Client SDKs in multiple programming languages
+For licensing inquiries and enterprise agreements:  
+**[enterprise@devfoundry.com](mailto:enterprise@devfoundry.com)**
 
 ---
 
-## 🎯 **Business Value**
-
-### **Development Acceleration**
-- **⚡ 10x Faster**: Service creation from weeks to minutes
-- **🔄 Consistent Quality**: Standardized patterns and best practices
-- **🚫 Zero Setup**: No local development environment required
-- **✨ Enterprise Standards**: Built-in security, monitoring, and documentation
-
-### **Operational Excellence**
-- **📈 Scalable**: Cloud-native architecture with auto-scaling
-- **🔐 Secure**: Enterprise-grade security controls
-- **📋 Compliant**: Built-in compliance frameworks (SOC2, GDPR, etc.)
-- **🔧 Maintainable**: Automated updates and dependency management
-
-### **Cost Optimization**
-- **💰 Reduced Development Costs**: Automated service creation
-- **⏱️ Faster Time-to-Market**: Rapid prototyping and deployment
-- **🔧 Lower Maintenance**: Standardized patterns reduce technical debt
-- **📊 Resource Efficiency**: Optimized cloud resource utilization
-
----
-
-## 🚧 **Platform Development**
-
-### **Technology Stack**
-- **Runtime**: Python 3.11+ on Google Cloud Run
-- **AI Engine**: Google Vertex AI with Gemini models
-- **Database**: PostgreSQL with Redis caching
-- **Message Queue**: Google Cloud Pub/Sub
-- **Container**: Docker with distroless base images
-- **Orchestration**: Kubernetes with Istio service mesh
-
-### **Development Workflow**
-```bash
-# Clone repository
-git clone https://github.com/nimergulf/devfactory.git
-cd devfactory
-
-# Setup development environment
-make setup-dev
-
-# Run tests
-make test
-
-# Local deployment
-make run-local
-
-# Deploy to staging
-make deploy-staging
-```
-
----
-
-## 🤝 **Enterprise Support**
-
-### **Support Tiers**
-- **Community**: GitHub issues and community support
-- **Professional**: SLA-backed support with response times
-- **Enterprise**: Dedicated support team and custom features
-
-### **Training & Onboarding**
-- **Documentation**: Comprehensive guides and tutorials
-- **Workshops**: Hands-on training sessions
-- **Consulting**: Architecture reviews and best practices
-
----
-
-## 📜 **License**
-
-DevFactory Platform - Enterprise License  
-© 2024 Nimergulf Organization. All rights reserved.
-
-For licensing inquiries and enterprise agreements, contact: [enterprise@nimergulf.com](mailto:enterprise@nimergulf.com)
-
----
-
-## 🌟 **Getting Started**
-
-Ready to accelerate your microservices development? 
-
-1. **[Request Demo](https://nimergulf.com/devfactory/demo)** - See DevFactory in action
-2. **[Enterprise Trial](https://nimergulf.com/devfactory/trial)** - 30-day enterprise trial
-3. **[Contact Sales](https://nimergulf.com/devfactory/contact)** - Custom enterprise deployment
-
-**Built with ❤️ by the Nimergulf team using cutting-edge AI and cloud technologies.**
+**Built with ❤️ by the DevFoundry team — where human creativity meets artificial intelligence to create the future of software development.**
