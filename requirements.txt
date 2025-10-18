@@ -4,3 +4,5 @@ google-cloud-secret-manager
 PyGithub
 google-genai
 pydantic
+asyncio
+aiofiles

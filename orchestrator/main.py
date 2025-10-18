@@ -1,107 +1,121 @@
-import os, tempfile, shutil
+"""
+DevFactory Orchestrator - Main Service
+Enterprise AI-Powered Microservice Generation Platform
+"""
+import os
+import logging
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from google.cloud import secretmanager
-from github import Github, InputGitTreeElement
-from orchestrator.generator import synthesize, materialize_repo_root
+from typing import Optional, Dict, Any
 
+from orchestrator.graph.workflow import WorkflowOrchestrator
+from orchestrator.providers.llm.vertex import VertexAIProvider
+from orchestrator.providers.vcs.github import GitHubProvider
+from orchestrator.providers.ci.cloudbuild import CloudBuildProvider
+from orchestrator.security.scanner import SecurityScanner
+from orchestrator.persistence.runs import RunManager
+
+# Configuration
 PROJECT_ID = os.getenv("PROJECT_ID")
-REGION = os.getenv("REGION", "me-central1")
+REGION = os.getenv("REGION", "us-central1")
 GITHUB_OWNER = os.getenv("GITHUB_OWNER")
 GITHUB_REPO = os.getenv("GITHUB_REPO")
 GITHUB_BRANCH = os.getenv("GITHUB_BRANCH", "main")
-TEMPLATE_DIR = os.path.join(os.getcwd(), "template")
 
-app = FastAPI(title="DevFactory Orchestrator")
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-class GenRequest(BaseModel):
+app = FastAPI(
+    title="DevFactory Orchestrator",
+    description="Enterprise AI-Powered Microservice Generation Platform",
+    version="2.0.0"
+)
+
+# Initialize providers and services
+workflow_orchestrator = WorkflowOrchestrator()
+llm_provider = VertexAIProvider(project_id=PROJECT_ID, region=REGION)
+vcs_provider = GitHubProvider(owner=GITHUB_OWNER, repo=GITHUB_REPO, branch=GITHUB_BRANCH)
+ci_provider = CloudBuildProvider(project_id=PROJECT_ID)
+security_scanner = SecurityScanner()
+run_manager = RunManager()
+
+class GenerationRequest(BaseModel):
     service_name: str
     requirement: str
+    architecture_type: Optional[str] = "microservice"
+    deployment_target: Optional[str] = "cloud-run"
+    security_level: Optional[str] = "standard"
+    metadata: Optional[Dict[str, Any]] = {}
 
-def _get_github_pat():
-    # Prefer env var (if Cloud Run mounted the secret as env)
-    env_pat = os.getenv("GITHUB_PAT")
-    if env_pat:
-        return env_pat.strip()
-    # Otherwise, read from Secret Manager secret named 'GITHUB_PAT'
-    client = secretmanager.SecretManagerServiceClient()
-    name = f"projects/{PROJECT_ID}/secrets/GITHUB_PAT/versions/latest"
-    resp = client.access_secret_version(name=name)
-    return resp.payload.data.decode("utf-8").strip()
+class GenerationResponse(BaseModel):
+    success: bool
+    run_id: str
+    message: str
+    repository_url: Optional[str] = None
+    deployment_status: Optional[str] = None
+    estimated_completion: Optional[str] = None
+    artifacts: Optional[Dict[str, str]] = {}
 
-def _walk_and_stage(path: str):
-    items = []
-    for root, _, files in os.walk(path):
-        for f in files:
-            full = os.path.join(root, f)
-            rel = os.path.relpath(full, path)
-            with open(full, "rb") as fp:
-                items.append((rel, fp.read()))
-    return items
+@app.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {
+        "status": "ok",
+        "service": "devfactory-orchestrator",
+        "version": "2.0.0"
+    }
 
-@app.post("/generate")
-def generate(req: GenRequest):
+@app.post("/generate", response_model=GenerationResponse)
+async def generate_service(request: GenerationRequest):
+    """
+    Generate a complete microservice from requirements
+    """
     try:
-        print(f"🎯 Starting generation for: {req.service_name}")
+        logger.info(f"🎯 Starting service generation for: {request.service_name}")
         
-        # 1) Generate ADR, OpenAPI, and code via Vertex AI (inside synthesize)
-        print("📝 Generating content...")
-        synthesized = synthesize(req.service_name, REGION, req.requirement)
-        print(f"✅ Content generated: {list(synthesized.keys())}")
-
-        # 2) Write into a temp dir (repo root layout)
-        tmp = tempfile.mkdtemp(prefix="dfgen_")
-        print(f"📂 Using temp dir: {tmp}")
+        # Create a new run
+        run_id = await run_manager.create_run(
+            service_name=request.service_name,
+            request_data=request.dict()
+        )
         
-        try:
-            print("📄 Materializing repository...")
-            materialize_repo_root(tmp, synthesized, TEMPLATE_DIR)
-            print("✅ Repository materialized")
-
-            # 3) Commit to GitHub root (overwrite existing files)
-            print("🔑 Getting GitHub PAT...")
-            pat = _get_github_pat()
-            gh = Github(pat)
-            repo = gh.get_repo(f"{GITHUB_OWNER}/{GITHUB_REPO}")
-            print("✅ GitHub connection established")
-
-            # Build a new tree with all files from tmp (upsert)
-            print("🌳 Building Git tree...")
-            base_ref = repo.get_git_ref(f"heads/{GITHUB_BRANCH}")
-            base_commit = repo.get_git_commit(base_ref.object.sha)
-
-            tree_elements = []
-            for rel, content in _walk_and_stage(tmp):
-                print(f"📁 Adding file: {rel}")
-                try:
-                    decoded_content = content.decode("utf-8", errors="replace")
-                    tree_elements.append(
-                        InputGitTreeElement(
-                            path=rel, mode="100644", type="blob",
-                            content=decoded_content
-                        )
-                    )
-                except Exception as decode_error:
-                    print(f"❌ Failed to decode {rel}: {decode_error}")
-                    raise decode_error
-
-            print("🌳 Creating Git tree...")
-            new_tree = repo.create_git_tree(tree_elements, base_commit.tree)
-            
-            print("💾 Creating commit...")
-commit_msg = f"[DevFactory] Generate service: {req.service_name}"
-            new_commit = repo.create_git_commit(commit_msg, new_tree, [base_commit])
-            base_ref.edit(new_commit.sha)
-            print("✅ Commit pushed to GitHub")
-
-        finally:
-            shutil.rmtree(tmp, ignore_errors=True)
-            print("🧹 Cleaned up temp directory")
-
-        return {"ok": True, "message": "Artifacts generated and committed. Cloud Build will deploy."}
+        # Execute the workflow
+        workflow_result = await workflow_orchestrator.execute_generation_workflow(
+            run_id=run_id,
+            service_name=request.service_name,
+            requirement=request.requirement,
+            architecture_type=request.architecture_type,
+            deployment_target=request.deployment_target,
+            security_level=request.security_level,
+            metadata=request.metadata,
+            providers={
+                "llm": llm_provider,
+                "vcs": vcs_provider,
+                "ci": ci_provider,
+                "security": security_scanner
+            }
+        )
+        
+        logger.info(f"✅ Workflow completed for run: {run_id}")
+        
+        return GenerationResponse(
+            success=True,
+            run_id=run_id,
+            message="Service generated successfully. Deployment pipeline triggered.",
+            repository_url=workflow_result.get("repository_url"),
+            deployment_status="pipeline_triggered",
+            estimated_completion="5-10 minutes",
+            artifacts=workflow_result.get("artifacts", {})
+        )
         
     except Exception as e:
-        print(f"❌ Generation error: {e}")
-        import traceback
-        traceback.print_exc()
-        raise HTTPException(status_code=500, detail=f"Generation failed: {str(e)}")
+        logger.error(f"❌ Generation error: {e}")
+        raise HTTPException(
+            status_code=500, 
+            detail=f"Generation failed: {str(e)}"
+        )
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8080)))
