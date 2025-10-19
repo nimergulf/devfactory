@@ -1,0 +1,214 @@
+# DevFoundry Platform - Complete Requirements
+# Python 3.11+
+
+# ============================================================================
+# CORE FRAMEWORK
+# ============================================================================
+fastapi==0.104.1                    # Modern async web framework
+uvicorn[standard]==0.24.0           # ASGI server with auto-reload
+pydantic==2.5.0                     # Data validation and settings
+pydantic-settings==2.1.0            # Settings management
+
+# ============================================================================
+# GOOGLE CLOUD PLATFORM (GCP) SDKs
+# ============================================================================
+google-cloud-aiplatform==1.38.0     # Vertex AI for Gemini/LLM access
+google-cloud-storage==2.10.0        # Cloud Storage for artifacts
+google-cloud-firestore==2.13.1      # Firestore for state management
+google-cloud-secret-manager==2.16.4 # Secret Manager for credentials
+google-cloud-logging==3.8.0         # Cloud Logging integration
+google-cloud-monitoring==2.16.0     # Cloud Monitoring metrics
+google-cloud-pubsub==2.18.4         # Pub/Sub for event streaming
+google-cloud-run==0.9.1             # Cloud Run management API
+google-cloud-build==3.20.0          # Cloud Build API
+google-cloud-iam==2.13.0            # IAM policy management
+google-cloud-resource-manager==1.11.0  # Project/resource management
+google-auth==2.24.0                 # Authentication
+google-auth-httplib2==0.1.1         # HTTP library for auth
+
+# ============================================================================
+# WORKFLOW ORCHESTRATION
+# ============================================================================
+temporalio==1.5.0                   # Temporal workflow engine (primary choice)
+# Alternative orchestration options (commented out):
+# celery[redis]==5.3.4              # Celery task queue
+# apache-airflow==2.7.3             # Apache Airflow (heavier)
+
+# ============================================================================
+# AI/LLM INTEGRATIONS
+# ============================================================================
+google-generativeai==0.3.1          # Google Gemini SDK (simplified)
+openai==1.3.5                       # OpenAI GPT models (fallback/future)
+anthropic==0.7.1                    # Anthropic Claude (R1.2+)
+langchain==0.0.350                  # LLM orchestration framework
+langchain-google-vertexai==0.0.4    # Vertex AI integration for LangChain
+tiktoken==0.5.1                     # Token counting for OpenAI models
+
+# ============================================================================
+# CODE GENERATION & PARSING
+# ============================================================================
+jinja2==3.1.2                       # Template engine for code generation
+black==23.11.0                      # Python code formatter
+autopep8==2.0.4                     # Python code auto-formatter
+isort==5.12.0                       # Import sorting
+ast-comments==1.1.2                 # AST manipulation with comments
+libcst==1.1.0                       # Concrete syntax tree for refactoring
+tree-sitter==0.20.4                 # Multi-language parsing
+rope==1.11.0                        # Python refactoring library
+
+# ============================================================================
+# API & SCHEMA HANDLING
+# ============================================================================
+openapi-spec-validator==0.7.1       # OpenAPI/Swagger validation
+prance==23.6.21.0                   # OpenAPI spec parser
+jsonschema==4.20.0                  # JSON schema validation
+pyyaml==6.0.1                       # YAML parsing
+toml==0.10.2                        # TOML parsing
+python-multipart==0.0.6             # Form data parsing for FastAPI
+
+# ============================================================================
+# VERSION CONTROL & GIT
+# ============================================================================
+PyGithub==2.1.1                     # GitHub API client
+GitPython==3.1.40                   # Git operations
+pygit2==1.13.3                      # LibGit2 bindings (faster)
+
+# ============================================================================
+# INFRASTRUCTURE AS CODE (IaC)
+# ============================================================================
+python-terraform==0.10.1            # Terraform wrapper
+python-hcl2==4.3.2                  # HCL2 parser for Terraform
+pyhcl==0.4.4                        # HCL parser (legacy)
+
+# ============================================================================
+# SECURITY & COMPLIANCE
+# ============================================================================
+safety==2.3.5                       # Dependency vulnerability scanning
+bandit==1.7.5                       # Python security linter
+semgrep==1.45.0                     # Static analysis (SAST)
+cyclonedx-python-lib==5.1.1         # CycloneDX SBOM generation
+syft-py==0.1.0                      # Syft SBOM tool wrapper
+grype-py==0.1.0                     # Grype vulnerability scanner
+trivy-python==0.2.0                 # Trivy security scanner wrapper
+python-owasp-zap==0.3.0             # OWASP ZAP for DAST
+requests==2.31.0                    # HTTP library
+
+# ============================================================================
+# TESTING FRAMEWORKS
+# ============================================================================
+pytest==7.4.3                       # Testing framework
+pytest-asyncio==0.21.1              # Async test support
+pytest-cov==4.1.0                   # Coverage reporting
+pytest-mock==3.12.0                 # Mocking support
+pytest-xdist==3.5.0                 # Parallel test execution
+pytest-timeout==2.2.0               # Test timeouts
+pytest-env==1.1.3                   # Environment variable management
+httpx==0.25.2                       # Async HTTP client for testing
+respx==0.20.2                       # HTTPX mocking
+faker==20.1.0                       # Test data generation
+factory-boy==3.3.0                  # Test fixture factories
+
+# ============================================================================
+# ASYNC & CONCURRENCY
+# ============================================================================
+aiohttp==3.9.1                      # Async HTTP client/server
+aiofiles==23.2.1                    # Async file operations
+aioboto3==12.1.0                    # Async AWS SDK (future multi-cloud)
+httpx==0.25.2                       # Modern async HTTP client
+asyncio-throttle==1.0.2             # Rate limiting for async
+
+# ============================================================================
+# DATA PROCESSING & SERIALIZATION
+# ============================================================================
+orjson==3.9.10                      # Fast JSON serialization
+msgpack==1.0.7                      # MessagePack serialization
+protobuf==4.25.1                    # Protocol buffers
+pandas==2.1.3                       # Data analysis (for metrics)
+numpy==1.26.2                       # Numerical operations
+
+# ============================================================================
+# OBSERVABILITY & MONITORING
+# ============================================================================
+structlog==23.2.0                   # Structured logging
+python-json-logger==2.0.7           # JSON logging formatter
+opentelemetry-api==1.21.0           # OpenTelemetry tracing
+opentelemetry-sdk==1.21.0           # OpenTelemetry SDK
+opentelemetry-instrumentation-fastapi==0.42b0  # FastAPI instrumentation
+opentelemetry-exporter-gcp-trace==1.6.0  # GCP trace exporter
+prometheus-client==0.19.0           # Prometheus metrics
+sentry-sdk[fastapi]==1.38.0         # Error tracking
+
+# ============================================================================
+# CACHING & STATE MANAGEMENT
+# ============================================================================
+redis==5.0.1                        # Redis client (for Celery/caching)
+hiredis==2.2.3                      # Redis C parser (performance)
+diskcache==5.6.3                    # Disk-based caching
+cachetools==5.3.2                   # Memory caching utilities
+
+# ============================================================================
+# AUTHENTICATION & AUTHORIZATION
+# ============================================================================
+python-jose[cryptography]==3.3.0    # JWT token handling
+passlib[bcrypt]==1.7.4              # Password hashing
+python-multipart==0.0.6             # OAuth2 password flow
+authlib==1.2.1                      # OAuth/OIDC client
+firebase-admin==6.2.0               # Firebase Auth (for web console)
+
+# ============================================================================
+# API DOCUMENTATION
+# ============================================================================
+mkdocs==1.5.3                       # Documentation generator
+mkdocs-material==9.4.14             # Material theme
+mkdocstrings[python]==0.24.0        # Auto API docs from docstrings
+pdoc3==0.10.0                       # Alternative doc generator
+
+# ============================================================================
+# CLI TOOLS
+# ============================================================================
+click==8.1.7                        # CLI framework
+rich==13.7.0                        # Rich terminal formatting
+typer==0.9.0                        # Modern CLI builder
+questionary==2.0.1                  # Interactive prompts
+tqdm==4.66.1                        # Progress bars
+
+# ============================================================================
+# UTILITIES
+# ============================================================================
+python-dotenv==1.0.0                # Environment variable management
+tenacity==8.2.3                     # Retry logic
+backoff==2.2.1                      # Exponential backoff
+ratelimit==2.2.1                    # Rate limiting
+validators==0.22.0                  # Data validation
+python-slugify==8.0.1               # URL-safe string conversion
+humanize==4.9.0                     # Human-readable numbers/dates
+arrow==1.3.0                        # Better datetime handling
+pendulum==2.1.2                     # Timezone handling
+schedule==1.2.0                     # Job scheduling
+watchdog==3.0.0                     # File system monitoring
+
+# ============================================================================
+# LINTING & CODE QUALITY
+# ============================================================================
+flake8==6.1.0                       # Linting
+pylint==3.0.3                       # Static analysis
+mypy==1.7.1                         # Type checking
+pre-commit==3.5.0                   # Git hooks
+coverage==7.3.2                     # Coverage measurement
+radon==6.0.1                        # Code complexity metrics
+vulture==2.10                       # Dead code detection
+
+# ============================================================================
+# DEVELOPMENT TOOLS
+# ============================================================================
+ipython==8.18.1                     # Enhanced Python shell
+ipdb==0.13.13                       # IPython debugger
+jupyter==1.0.0                      # Jupyter notebooks (for analysis)
+notebook==7.0.6                     # Notebook server
+
+# ============================================================================
+# DIAGRAM GENERATION
+# ============================================================================
+diagrams==0.23.4                    # Architecture diagram generation
+graphviz==0.20.1                    # Graph visualization
+matplotlib==3.8.2                   # Plotting (for metrics visualization)
